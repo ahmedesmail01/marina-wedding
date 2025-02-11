@@ -1,0 +1,150 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.parent {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    max-width: 500px; /* For desktop centered view */
+}
+
+.parent .marina {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.right_rose,
+.d_l_rose,
+.left_rose,
+.d_r_rose,
+.t_l_rose,
+.t_r_rose {
+    position: absolute;
+    max-width: 70%;
+}
+
+.d_l_rose {
+    bottom: 0;
+    left: 0;
+    filter: grayscale(70%);
+}
+
+.d_r_rose {
+    bottom: 0;
+    right: 0;
+    filter: grayscale(70%);
+}
+
+.left_rose {
+    bottom: 15vh;
+    left: 0;
+    filter: grayscale(70%);
+}
+
+.right_rose {
+    bottom: 15vh;
+    right: 0;
+    filter: grayscale(70%);
+}
+
+.t_r_rose {
+    top: 0;
+    right: -3vw;
+    filter: grayscale(100%);
+    max-width: 300px;
+}
+
+.t_l_rose {
+    top: 0;
+    left: -3vw;
+    filter: grayscale(100%);
+    max-width: 300px;
+}
+
+.parent .text_holder{
+    width: 100%;
+    margin-right: 20px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: 25px;
+    z-index: 20;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+
+
+}
+
+.parent .button{
+    cursor: pointer;
+    width: 207px;
+    background-color: #eae2cb;
+    height: 71px;
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+}
+
+
+/* Custom animations instead of AOS for mobile */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+    .parent {
+        width: 100vw;
+        max-width: none;
+    }
+
+    .right_rose,
+    .d_l_rose,
+    .left_rose,
+    .d_r_rose {
+        max-width: 70%;
+    }
+
+    .t_r_rose,
+    .t_l_rose {
+        max-width: 250px;
+    }
+}
